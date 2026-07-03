@@ -24,7 +24,7 @@ public abstract class UserOwnedEntity {
     private LocalDateTime createdAt;
 
     @PrePersist
-    public void prePersist() {
+    public void onCreate() {
         this.createdAt = LocalDateTime.now();
     }
 }
