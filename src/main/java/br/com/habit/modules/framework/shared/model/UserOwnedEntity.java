@@ -3,6 +3,7 @@ package br.com.habit.modules.framework.shared.model;
 import br.com.habit.modules.framework.user.model.User;
 import jakarta.persistence.*;
 import lombok.Getter;
+
 import org.hibernate.annotations.UuidGenerator;
 
 import java.time.LocalDateTime;
@@ -23,7 +24,7 @@ public abstract class UserOwnedEntity {
     private LocalDateTime createdAt;
 
     @PrePersist
-    public void prePersist() {
+    public void onCreate() {
         this.createdAt = LocalDateTime.now();
     }
 }
