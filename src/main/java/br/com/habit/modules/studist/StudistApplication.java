@@ -14,7 +14,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableJpaRepositories(basePackages = {"br.com.habit.infra", "br.com.habit.modules.framework", "br.com.habit.modules.studist"})
 public class StudistApplication {
     public static void main(String[] args) {
-        SpringApplication.run(br.com.habit.modules.musicist.MusicistApplication.class, args);
+        SpringApplication.run(br.com.habit.modules.studist.StudistApplication.class, args);
     }
 }
 
