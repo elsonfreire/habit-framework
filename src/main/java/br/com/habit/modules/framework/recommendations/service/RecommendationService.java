@@ -5,7 +5,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
 
-import br.com.habit.modules.framework.user.service.DomainProfileMapper;
 import br.com.habit.modules.framework.user.service.UserResponseFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.habit.modules.framework.friendship.repository.FriendshipRepository;
 import br.com.habit.modules.framework.recommendations.dto.RecommendationResponse;
-import br.com.habit.modules.framework.user.dto.UserResponse;
 import br.com.habit.modules.framework.user.exceptions.AuthenticatedUserNotFoundException;
 import br.com.habit.modules.framework.user.model.User;
 import br.com.habit.modules.framework.user.repository.UserRepository;
@@ -26,7 +24,7 @@ public class RecommendationService {
 
   private final FriendshipRepository friendshipRepository;
 
-  private final RecommendationStrategy recommendationStrategy;
+  private final RecommendationTemplate recommendationTemplate;
 
   private final UserResponseFactory userResponseFactory;
 
@@ -45,7 +43,7 @@ public class RecommendationService {
     return userRepository.findByIdNotIn(idsToExclude).stream()
         .map(
             candidate -> {
-              int score = recommendationStrategy.calculateScore(currentUser, candidate);
+              int score = recommendationTemplate.calculateScore(currentUser, candidate);
               return new RecommendationResponse(userResponseFactory.from(candidate), score);
             })
         .filter(rec -> rec.matchScore() > 0)

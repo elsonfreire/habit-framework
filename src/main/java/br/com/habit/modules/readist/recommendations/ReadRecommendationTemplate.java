@@ -1,23 +1,17 @@
 package br.com.habit.modules.readist.recommendations;
 
+import br.com.habit.modules.framework.recommendations.service.RecommendationTemplate;
 import org.springframework.stereotype.Component;
 
-import br.com.habit.modules.framework.recommendations.service.RecommendationStrategy;
 import br.com.habit.modules.framework.user.model.User;
 import br.com.habit.modules.readist.profile.ReadProfile;
 
 @Component
-public class ReadRecommendationStrategy implements RecommendationStrategy {
+public class ReadRecommendationTemplate extends RecommendationTemplate {
     
   @Override
   public int calculateScore(User me, User other) {
-    int score = 0;
-
-    if (me.getCity() != null && me.getCity().equalsIgnoreCase(other.getCity())) {
-      score += 5;
-    } else if (me.getState() != null && me.getState().equalsIgnoreCase(other.getState())) {
-      score += 3;
-    }
+    int score = scoreByLocation(me, other);
 
     ReadProfile readProfile = (ReadProfile) me.getDomainProfile();
     ReadProfile otherReadProfile = (ReadProfile) other.getDomainProfile();
