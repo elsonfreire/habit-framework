@@ -3,7 +3,7 @@ package br.com.habit.modules.studist.profile;
 import br.com.habit.modules.framework.user.model.DomainProfile;
 import br.com.habit.modules.studist.enums.StudyAreaType;
 import br.com.habit.modules.studist.enums.StudyGoalType;
-import br.com.habit.modules.studist.enums.StudyLevelType;
+import br.com.habit.modules.studist.enums.EducationLevelType;
 import br.com.habit.modules.studist.enums.StudyMethodType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -25,7 +25,7 @@ public class StudyProfile extends DomainProfile {
     private StudyAreaType area;
 
     @Enumerated(EnumType.STRING)
-    private StudyLevelType level;
+    private EducationLevelType educationLevel;
 
     @Enumerated(EnumType.STRING)
     private StudyMethodType favoriteMethod;

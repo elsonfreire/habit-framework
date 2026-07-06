@@ -17,7 +17,7 @@ public class StudyGoalSuggestionTemplate extends GoalSuggestionTemplate {
 
         if (studyProfile.getArea() != null)
             context.append(" for someone studying ").append(studyProfile.getArea());
-        if (studyProfile.getLevel() != null) context.append(", level ").append(studyProfile.getLevel());
+        if (studyProfile.getEducationLevel() != null) context.append(", education level ").append(studyProfile.getEducationLevel());
         if (studyProfile.getFavoriteMethod() != null)
             context.append(", preferred method ").append(studyProfile.getFavoriteMethod());
 

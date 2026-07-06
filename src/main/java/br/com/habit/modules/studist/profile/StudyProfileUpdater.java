@@ -27,7 +27,7 @@ public class StudyProfileUpdater implements DomainProfileUpdater {
         StudyProfileData data =
                 objectMapper.convertValue(domainProfileData, StudyProfileData.class);
 
-        if (data.level() != null) profile.setLevel(data.level());
+        if (data.educationLevel() != null) profile.setEducationLevel(data.educationLevel());
         if (data.area() != null) profile.setArea(data.area());
         if (data.favoriteMethod() != null) profile.setFavoriteMethod(data.favoriteMethod());
         if (data.goals() != null) {

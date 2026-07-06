@@ -12,7 +12,7 @@ public class StudyProfileMapper implements DomainProfileMapper {
 
         return new StudyProfileData(
                 studyProfile.getArea(),
-                studyProfile.getLevel(),
+                studyProfile.getEducationLevel(),
                 studyProfile.getFavoriteMethod(),
                 studyProfile.getGoals()
         );
