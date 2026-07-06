@@ -48,7 +48,6 @@ public class ReadRecommendationStrategy implements RecommendationStrategy {
       score += 1;
     }
 
-    return score;
-    //return Math.min(score, 10);
+    return Math.min(score, 10);
   }
 }
