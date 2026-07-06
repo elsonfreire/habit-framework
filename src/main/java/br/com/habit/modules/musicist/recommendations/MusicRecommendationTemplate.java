@@ -1,23 +1,17 @@
 package br.com.habit.modules.musicist.recommendations;
 
+import br.com.habit.modules.framework.recommendations.service.RecommendationTemplate;
 import org.springframework.stereotype.Component;
 
-import br.com.habit.modules.framework.recommendations.service.RecommendationStrategy;
 import br.com.habit.modules.framework.user.model.User;
 import br.com.habit.modules.musicist.profile.MusicProfile;
 
 @Component
-public class MusicRecommendationStrategy implements RecommendationStrategy {
+public class MusicRecommendationTemplate extends RecommendationTemplate {
     
   @Override
   public int calculateScore(User me, User other) {
-    int score = 0;
-
-    if (me.getCity() != null && me.getCity().equalsIgnoreCase(other.getCity())) {
-      score += 5;
-    } else if (me.getState() != null && me.getState().equalsIgnoreCase(other.getState())) {
-      score += 3;
-    }
+    int score = scoreByLocation(me, other);
 
     MusicProfile musicProfile = (MusicProfile) me.getDomainProfile();
     MusicProfile otherMusicProfile = (MusicProfile) other.getDomainProfile();
