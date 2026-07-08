@@ -10,7 +10,7 @@ import lombok.*;
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "topics")
+@Table(name = "study_topics")
 public class StudyTopic extends UserCollectionItem {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
